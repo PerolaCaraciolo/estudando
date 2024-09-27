@@ -1,6 +1,7 @@
 ### ====== COMANDOS PARA GIT ======
 
 * `git init`  //  Inicia a linha do tempo
+* `git init -b main`    //  Já cria na main, e não na master
 * `git add <' .' ou nome do arquivo>`   //  Adiciona ou atualiza mudanças para irem para a linha do tempo (pra main ou outra branch)
 * `git commit -m "<msg do commit>"` //    Adiciona um ponto na linha do tempo
 * `git commit -am "<msg do commit"`    //  Já faz o "git add" e o "git commit" ao mesmo tempo!
@@ -29,13 +30,14 @@
 3. `git add .`
 4. `git commit -m "<msg do commit>"` NO TERMINAL DO PROJETO NO VS CODE
 5. `git remote add origin <link do repositório do GitHub>`
-6. `git push -u origin main`
-7. Ele vai pedir usuário e senha
+6. `git branch -M "main"`   Mas aí vai ser se eu tiver criado na master e preferir que seja a main
+7. `git push -u origin main <ou master>`
+8. Ele vai pedir usuário e senha
 . PRONTINHOOO...
 . Depois que fez isso a primeira vez, só vai assim mais simples ooh...
-8. `git add .`
-9. `git commit -m "<msg do commit>"`
-10. `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
+9. `git add .`
+10. `git commit -m "<msg do commit>"`
+11. `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
 
 
 > PARA BAIXAR UM PROJETO DO HUB PRO PC
