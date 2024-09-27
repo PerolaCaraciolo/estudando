@@ -30,7 +30,8 @@
 - `git remote add origin <link do repositório do GitHub>`
 - `git push -u origin main`
 - Ele vai pedir usuário e senha
-- Prontinhooo
+- PRONTINHOOO...
+- Depois que fez isso a primeira vez, só vai assim mais simples ooh...
 - `git add .` ]>>>] `git commit -m "<msg do commit>"` ]>>>] `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
 
 
