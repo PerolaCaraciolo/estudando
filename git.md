@@ -1,51 +1,50 @@
-}}====== COMANDOS PARA GIT ======{{
+#====== COMANDOS PARA GIT ======
 
-`git init`  //  Inicia a linha do tempo
-`git add <' .' ou nome do arquivo>`   //  Adiciona ou atualiza mudanças para irem para a linha do tempo (pra main ou outra branch)
-`git commit -m "<msg do commit>"` //    Adiciona um ponto na linha do tempo
-`git commit -am "<msg do commit"`    //  Já faz o "git add" e o "git commit" ao mesmo tempo!
-`git log`   //  Visualiza os pontos na linha do tempo / commit
-`git status`    //  Informa o estado das alterações do nosso projeto
-`git show <código do commit ou nada>`  //  Apresenta determinado ponto na história ou o último
-`git branch <nome nova branch>` //  Gerenciar novas linhas do tempo. {Cria uma ramificação, uma nova linha do tempo}
-`git branch -D <nome da branch que desejo excluir`  //  Exclui a branch mencionada
-`git checkout <nome da branch desejada>`    //  Manipula as linhas do tempo {Muda a linha do tempo que eu tô usando para a que mencionei, seja uma outra branch ou mesmo qualquer commit anterior que eu já tenha feito}
-`git checkout -b <nome da nova branch desejada>` //  Cria uma branch na hora e já muda pra ela ao mesmo tempo
-`git merge <nome da branch que quero juntar>`   //  Unir linhas do tempo {Vai trazer as adições da branch mencionada para a que eu estiver trabalhando no momento}
-`git remote add origin <link do repositório no GitHub>` //  Conecta meu projeto do VsCode a um repositório do GitHub
-`git remote -v` //  Vejo meus repositórios remotos
-`git push -u origin main`   //  Envia alterações locais para o repositório remoto {EMPURRA o meu projeto do pc para o GitHub {MAS só precisa colocar esse '-u origin main' pra criar na main uma vez. qdo for só add a coisas depois, pode BOTAR SÓ O `git push` mesmo!}}
-`git config credential.helper store`    //  Pra não precisar ficar colocando o email e senha toda vez que formos subir um "push" pro GitHub
-`git clone <link do repositório do GitHub que eu quero>`    //  Clonar um projeto / repositório {Puxa um repositório do GitHub pro meu pc}
-`git pull`  //  Puxa do repositório remoto {Ele vai conferir (PUXAR) aquele meu repositório do pc com o do GitHub, atualizando ele, pra ver se está tudo certo.}
-
-
+* `git init`  //  Inicia a linha do tempo
+* `git add <' .' ou nome do arquivo>`   //  Adiciona ou atualiza mudanças para irem para a linha do tempo (pra main ou outra branch)
+* `git commit -m "<msg do commit>"` //    Adiciona um ponto na linha do tempo
+* `git commit -am "<msg do commit"`    //  Já faz o "git add" e o "git commit" ao mesmo tempo!
+* `git log`   //  Visualiza os pontos na linha do tempo / commit
+* `git status`    //  Informa o estado das alterações do nosso projeto
+* `git show <código do commit ou nada>`  //  Apresenta determinado ponto na história ou o último
+* `git branch <nome nova branch>` //  Gerenciar novas linhas do tempo. {Cria uma ramificação, uma nova linha do tempo}
+* `git branch -D <nome da branch que desejo excluir`  //  Exclui a branch mencionada
+* `git checkout <nome da branch desejada>`    //  Manipula as linhas do tempo {Muda a linha do tempo que eu tô usando para a que mencionei, seja uma outra branch ou mesmo qualquer commit anterior que eu já tenha feito}
+* `git checkout -b <nome da nova branch desejada>` //  Cria uma branch na hora e já muda pra ela ao mesmo tempo
+* `git merge <nome da branch que quero juntar>`   //  Unir linhas do tempo {Vai trazer as adições da branch mencionada para a que eu estiver trabalhando no momento}
+* `git remote add origin <link do repositório no GitHub>` //  Conecta meu projeto do VsCode a um repositório do GitHub
+* `git remote -v` //  Vejo meus repositórios remotos
+* `git push -u origin main`   //  Envia alterações locais para o repositório remoto {EMPURRA o meu projeto do pc para o GitHub {MAS só precisa colocar esse '-u origin main' pra criar na main uma vez. qdo for só add a coisas depois, pode BOTAR SÓ O `git push` mesmo!}}
+* `git config credential.helper store`    //  Pra não precisar ficar colocando o email e senha toda vez que formos subir um "push" pro GitHub
+* `git clone <link do repositório do GitHub que eu quero>`    //  Clonar um projeto / repositório {Puxa um repositório do GitHub pro meu pc}
+* `git pull`  //  Puxa do repositório remoto {Ele vai conferir (PUXAR) aquele meu repositório do pc com o do GitHub, atualizando ele, pra ver se está tudo certo.}
 
 
-]]====== GITHUB ======{{
+
+#====== GITHUB ======
 
 > PARA SUBIR UM PROJETO DO PC PRO HUB
-- PRIMEIRO crio o repositório no GitHub
-- `git init`
-- `git add .`
-- `git commit -m "<msg do commit>"` NO TERMINAL DO PROJETO NO VS CODE
-- `git remote add origin <link do repositório do GitHub>`
-- `git push -u origin main`
-- Ele vai pedir usuário e senha
-- PRONTINHOOO...
-- Depois que fez isso a primeira vez, só vai assim mais simples ooh...
-- `git add .`
-- `git commit -m "<msg do commit>"`
-- `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
+1. PRIMEIRO crio o repositório no GitHub
+2. `git init`
+3. `git add .`
+4. `git commit -m "<msg do commit>"` NO TERMINAL DO PROJETO NO VS CODE
+5. `git remote add origin <link do repositório do GitHub>`
+6. `git push -u origin main`
+7. Ele vai pedir usuário e senha
+. PRONTINHOOO...
+. Depois que fez isso a primeira vez, só vai assim mais simples ooh...
+8. `git add .`
+9. `git commit -m "<msg do commit>"`
+10. `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
 
 
 > PARA BAIXAR UM PROJETO DO HUB PRO PC
-- `git clone <link do repositório>` eu trago o repositório pra minha máquina
-- `git pull` vai fazer eu sempre poder conferir se talvez não tem nada novo no meu remoto pra atualizar o meu local.
+1. `git clone <link do repositório>` eu trago o repositório pra minha máquina
+2. `git pull` vai fazer eu sempre poder conferir se talvez não tem nada novo no meu remoto pra atualizar o meu local.
 
 
 
-]]====== EXTRAS ======{{
+#====== EXTRAS ======
 
 `>simple`   //  No campo de pesquisa lá de cima, ele abre uma página de navegador aqui no próprio VS pra mim :O
 
