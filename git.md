@@ -1,4 +1,4 @@
-#====== COMANDOS PARA GIT ======
+# ====== COMANDOS PARA GIT ======
 
 * `git init`  //  Inicia a linha do tempo
 * `git add <' .' ou nome do arquivo>`   //  Adiciona ou atualiza mudanças para irem para a linha do tempo (pra main ou outra branch)
@@ -21,7 +21,7 @@
 
 
 
-#====== GITHUB ======
+# ====== GITHUB ======
 
 > PARA SUBIR UM PROJETO DO PC PRO HUB
 1. PRIMEIRO crio o repositório no GitHub
@@ -44,7 +44,7 @@
 
 
 
-#====== EXTRAS ======
+# ====== EXTRAS ======
 
 `>simple`   //  No campo de pesquisa lá de cima, ele abre uma página de navegador aqui no próprio VS pra mim :O
 
