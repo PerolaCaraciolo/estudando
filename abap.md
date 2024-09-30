@@ -1,21 +1,24 @@
-* >> Criando um programa:
-*
-* SE38 > 'ZnomePrograma'
-* add um título > Programa Executável > Cliente Produtivo
-* add o Package 'ZACADEMIA_OUT_24'
-* add a ordem, que já tá indo automático aqui 'SXTK900070'
-* ASSIM, EU VOU TER CRIADO UM PROGRAMA EXECUTÁVEL
-* Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de transporte.
+>> CRIANDO UM PROGRAMA:
 
+1. SE38 > 'ZnomePrograma'
+2. add um título > Programa Executável > Cliente Produtivo
+3. add o Package 'ZACADEMIA_OUT_24'
+4. add a ordem, que já tá indo automático aqui 'SXTK900070'
+- ASSIM, EU VOU TER CRIADO UM PROGRAMA EXECUTÁVEL
+Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de transporte.
+<br>
+<br>
+<br>
 
+>> CRIANDO TRANSAÇÕES:
 
-* >> CRIANDO TRANSAÇÕES:
-*
 * SE93 > 'ZnomeTransação'
 * add o texto breve descrição > Programa e tela de seleção (Transação de report, por ser um programa executável)
 * Programa: RFITEMGL (usei isso na primeira)
 * Marco a mais apenas em Capacidade GUI: HTML, JAVA E WINDOWS
-
+<br>
+<br>
+<br>
 
 * >> TYPES:
 *

@@ -19,12 +19,13 @@
 * `git config credential.helper store`    //  Pra não precisar ficar colocando o email e senha toda vez que formos subir um "push" pro GitHub
 * `git clone <link do repositório do GitHub que eu quero>`    //  Clonar um projeto / repositório {Puxa um repositório do GitHub pro meu pc}
 * `git pull`  //  Puxa do repositório remoto {Ele vai conferir (PUXAR) aquele meu repositório do pc com o do GitHub, atualizando ele, pra ver se está tudo certo.}
-
-
+<br>
+<br>
+<br>
 
 ### ====== GITHUB ======
 
-> PARA SUBIR UM PROJETO DO PC PRO HUB
+> #### PARA SUBIR UM PROJETO DO PC PRO HUB
 1. PRIMEIRO crio o repositório no GitHub
 2. `git init`
 3. `git add .`
@@ -38,13 +39,14 @@
 9. `git add .`
 10. `git commit -m "<msg do commit>"`
 11. `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
+<br>
 
-
-> PARA BAIXAR UM PROJETO DO HUB PRO PC
+> #### PARA BAIXAR UM PROJETO DO HUB PRO PC
 1. `git clone <link do repositório>` eu trago o repositório pra minha máquina
 2. `git pull` vai fazer eu sempre poder conferir se talvez não tem nada novo no meu remoto pra atualizar o meu local.
-
-
+<br>
+<br>
+<br>
 
 ### ====== EXTRAS ======
 
