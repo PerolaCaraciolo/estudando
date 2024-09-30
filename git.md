@@ -24,7 +24,8 @@
 
 ### ====== GITHUB ======
 <br>
-> #### PARA SUBIR UM PROJETO DO PC PRO HUB
+
+> *PARA SUBIR UM PROJETO DO PC PRO HUB*
 1. PRIMEIRO crio o repositório no GitHub
 2. `git init`
 3. `git add .`
@@ -40,7 +41,7 @@
 11. `git push`    {PARA MANDAR ATUALIZAÇÕES DO QUE JÁ FOI EMPURRADO A PRIMEIRA VEZ}
 <br>
 
-> #### PARA BAIXAR UM PROJETO DO HUB PRO PC
+> *PARA BAIXAR UM PROJETO DO HUB PRO PC*
 1. `git clone <link do repositório>` eu trago o repositório pra minha máquina
 2. `git pull` vai fazer eu sempre poder conferir se talvez não tem nada novo no meu remoto pra atualizar o meu local.
 <br>

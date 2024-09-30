@@ -1,11 +1,14 @@
+> OBS.: O que está entre < ... > é campo de adição de valor, que pode ser diferente do que está de exemplo!
+
 ### ====== CRIANDO UM PROGRAMA ======
 
 1. SE38 > 'ZnomePrograma'
 2. add um título > Programa Executável > Cliente Produtivo
-3. add o Package 'ZACADEMIA_OUT_24'     {Na academia}
+3. add o Package 'ZACADEMIA_OUT_24'     *{Na academia}*
 4. add a ordem, que já tá indo automático aqui 'SXTK900070' {Na academia}
-- ASSIM, eu vou ter criad um programa EXECUTÁVEL <br>
-Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de transporte.
+- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)
+<br>
+Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
 <br>
 
@@ -14,7 +17,7 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 1. SE93 > 'ZnomeTransação'
 2. add o texto breve descrição > Programa e tela de seleção (Transação de report, por ser um programa executável)
 3. Programa: RFITEMGL (usei isso na primeira (?) )
-4. Marco a mais apenas em Capacidade GUI: HTML, JAVA E WINDOWS
+4. Marco a mais apenas opções em Capacidade GUI: HTML, JAVA E WINDOWS
 <br>
 <br>
 
@@ -34,16 +37,23 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 <br>
 
 ### ====== TRANSAÇÕES ======
-* >> TRANSAÇÕES:
-*
+
 * SE38 - Para programas
 * SE93 - Para criar transações
 * SE11 - Dicionário. Para criar tabelas
-* SE01 / SE09 / SE10 - Gerenciador de requests (Consigo consultar as tabelas que criei (?))
+* SE01 - principal / SE09 - simplificada / SE10 - Gerenciador de requests (Consigo consultar as tabelas que criei (?))
 * SE16N - Exibe a tabela rápido e simples
-* /h - Ativa o debug
-* /o<se38> - Abre a transação numa nova janela
-* /n<se38> - Abre a transação no lugar daquela mesma janela
+* /H - Ativa o debug
+* /O<se38> - Abre a transação numa nova janela
+* /N<se38> - Abre a transação no lugar daquela mesma janela
+> Com apostila vazada:
+- SE38 - abre o editor ABAP/4
+- SE16 - permite a visualização do conteúdo de tabelas do SAP 
+- SE11 - permite a visualização da arquitetura de uma tabela/estrutura do SAP
+- SE43 - criação de menus
+- SE93 - criação de transações customizadas
+- SE71 - criação e manutenção de formulários SAPscripts
+- CMOD - criação de projetos Exits (Field Exits, User Exits,...)
 <br>
 <br>
 
@@ -53,17 +63,18 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 <br>
 
 ### ====== INCLUDES ======
-* >> INCLUDE:
 
-* Um programa, mas que não é executável, por isso eu precisso clicar duas vezes para criar realmente esse objeto, quando uso no código, mas lá eu só vou me preocupar com o título
-* <no programa >>>
-* '
-* REPORT ZnomePrograma.
-* INCLUDE: ZnomePrograma_TOP,
-*           ZnomePrograma_SEL.
-* START-OF-SELECTION.
-* END-OF-SELECTION.
-*'
+É um pedaço de programa que não tem em tela;
+Um programa, mas que não é executável, por isso que quando eu uso no código, preciso clicar duas vezes para criar realmente esse objeto, mas lá eu só vou me preocupar com o título;
+
+> No programa: 
+
+> `REPORT ZnomePrograma.`
+`INCLUDE: ZnomePrograma_TOP,`
+`.........ZnomePrograma_SEL.`
+`START-OF-SELECTION.`
+`END-OF-SELECTION.`
+
 <br>
 <br>
 
@@ -137,27 +148,63 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 <br>
 <br>
 
+### ====== DECLARAR VARIÁVEL ======
+
+> `DATA v_variavelGlobal(<20>) TYPE <c>.`
+
+> `DATA: v_variavelGlobal<10> TYPE <i>,`
+`......l_variavelLocal<20> TYPE <c>.`
+
+> `DATA v_variavel TYPE char<10>.`
+
+> `DATA v_variavelGlobal TYPE <c> LENGTH <30>`
+
+- Se a variável estiver vazia e o tipo dela for INTEIRO, vai ser impresso '0' (não tem 'not null' aqui);
+- `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
+<br>
+<br>
+
+### ====== PARAMETERS ======
+
+
+<br>
+<br>
+
 ### ====== OBS GERAIS ======
+
+- Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z" ou "Y"***;
+- `<>`: Diferente
+- `=`: Igual
+<br>
+
+> Comentários:
+- `*` OU `"`: Comenta o código, no início ou no meio dele, respectivamente
+- `ctrl + <` OU `ctrl + >`: Comenta e descomenta um trecho todo de código
+
 
 * SEMPRE terminar toda ação com PONTO FINAL
 * SEMPREEEE salvar, conferir (compilar), ativar pra, então, verificar
-* F1 em cima do comando  ->
-* '*' no início ou '"' no meio do código  ->  Abre comentários
-* 'ctrl + <' E 'ctrl + >'  ->  Comenta e descomenta um trecho todo de código
-* 'TYPE' ou 'LIKE'  ->  Definem a tipagem
+* F1 em cima do comando  - 
 
-* <>  ->  Diferente
-* =  ->  Igual
+* 'TYPE' ou 'LIKE'  -  Definem a tipagem
 
-* 'WRITE /.' OU 'SKIP <num linhas>.'  ->  Pula linha
-* 'WRITE: 'texto', '/', p_variav.'  ->  Imprime mais de uma coisa ao mesmo tempo
 
-* 'PARAMETERS p_variav TYPE <tipo> <OBLIGATORY (se precisar)>.'  ->  Como criar uma tela de seleção
-* 'PARAMETERS p_variav RADIOBUTTON GROUP <g1>.'  ->  Cria um botão clicável
+
+* 'WRITE /.' OU 'SKIP <num linhas>.'  -  Pula linha
+* 'WRITE: 'texto', '/', p_variav.'  -  Imprime mais de uma coisa ao mesmo tempo
+
+
+* 'PARAMETERS p_variav TYPE <tipo> <OBLIGATORY (se precisar)>.'  -  Como criar uma tela de seleção
+* 'PARAMETERS p_variav RADIOBUTTON GROUP <g1>.'  -  Cria um botão clicável
 * Depois de criar > 'Elementos de texto' > 'Textos de seleção',
 * eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa variável.
 * Não esquecer de salvar e ativar lá também!
 
-* 'v_variavel' OU 'l_variavel'  ->  Variável global OU variável global
-* 'DATA v_variavel TYPE tipo.'  ->  Cria variável
-* Se a variável tiver vazia e for inteiro, ela imprime '0' (não tem 'not null')
+
+
+
+
+
+OK * 'v_variavel' OU 'l_variavel'  -  Variável global OU variável global
+OK * 'DATA v_variavel TYPE tipo.'  -  Cria variável
+OK * Se a variável tiver vazia e for inteiro, ela imprime '0' (não tem 'not null')
