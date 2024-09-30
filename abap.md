@@ -1,27 +1,25 @@
->> CRIANDO UM PROGRAMA:
+### ====== CRIANDO UM PROGRAMA ======
 
 1. SE38 > 'ZnomePrograma'
 2. add um título > Programa Executável > Cliente Produtivo
-3. add o Package 'ZACADEMIA_OUT_24'
-4. add a ordem, que já tá indo automático aqui 'SXTK900070'
-- ASSIM, EU VOU TER CRIADO UM PROGRAMA EXECUTÁVEL
+3. add o Package 'ZACADEMIA_OUT_24'     {Na academia}
+4. add a ordem, que já tá indo automático aqui 'SXTK900070' {Na academia}
+- ASSIM, eu vou ter criad um programa EXECUTÁVEL <br>
 Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de transporte.
 <br>
 <br>
-<br>
 
->> CRIANDO TRANSAÇÕES:
+### ====== CRIANDO TRANSAÇÕES ======
 
-* SE93 > 'ZnomeTransação'
-* add o texto breve descrição > Programa e tela de seleção (Transação de report, por ser um programa executável)
-* Programa: RFITEMGL (usei isso na primeira)
-* Marco a mais apenas em Capacidade GUI: HTML, JAVA E WINDOWS
-<br>
+1. SE93 > 'ZnomeTransação'
+2. add o texto breve descrição > Programa e tela de seleção (Transação de report, por ser um programa executável)
+3. Programa: RFITEMGL (usei isso na primeira (?) )
+4. Marco a mais apenas em Capacidade GUI: HTML, JAVA E WINDOWS
 <br>
 <br>
 
-* >> TYPES:
-*
+### ====== TYPES ======
+
 * CHAR10 / CHAR<30> / c LENGTH <30> - strings
 * i - números
 * d - data
@@ -32,9 +30,10 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 * timlo - Hora do meu servidor
 * sydatum
 * syuzeit
+<br>
+<br>
 
-
-
+### ====== TRANSAÇÕES ======
 * >> TRANSAÇÕES:
 *
 * SE38 - Para programas
@@ -45,15 +44,17 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 * /h - Ativa o debug
 * /o<se38> - Abre a transação numa nova janela
 * /n<se38> - Abre a transação no lugar daquela mesma janela
+<br>
+<br>
 
+### ====== SPLIT E CONCATENATE ======
 
+<br>
+<br>
 
-* >> SPLIT E CONCATENATE:
-*
-
-
+### ====== INCLUDES ======
 * >> INCLUDE:
-*
+
 * Um programa, mas que não é executável, por isso eu precisso clicar duas vezes para criar realmente esse objeto, quando uso no código, mas lá eu só vou me preocupar com o título
 * <no programa >>>
 * '
@@ -63,11 +64,11 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 * START-OF-SELECTION.
 * END-OF-SELECTION.
 *'
+<br>
+<br>
 
+### ====== IF ======
 
-
-* >> IF:
-*
 *IF <condição>.
 * <ação>.
 *ENDIF.
@@ -91,11 +92,11 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 *ENDIF.
 *
 * Com RADIOBUTTON, eu uso assim: IF p_variav 'X' (é a forma que ele vai entender que aquela opção é que está selecionada.
+<br>
+<br>
 
+### ====== CASE ======
 
-
-* >> CASE:
-*
 *CASE 'X'.
 *  WHEN <opção1>.
 *    <ação>.
@@ -104,11 +105,11 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 *  WHEN OTHERS.
 *    <ação>.
 *  ENDCASE.
+<br>
+<br>
 
+### ====== DEIXAR EM BLOCOS ======
 
-
-* >> DEIXAR EM BLOCOS:
-*
 *SELECTION-SCREEN BEGIN OF BLOCK <b1> WITH FRAME TITLE text-001.
 *  PARAMETERS ... .
 *SELECTION-SCREEN END OF BLOCK <b1>.
@@ -122,20 +123,22 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 * Após criá-los, eu clico 2x nos "text" pra criar o título de cada bloco.
 * Elementos de texto > Símbolos de texto
 * No geral, ele pode tá lá no INCLUDES, por trazer nos blocos as telas de seleção que quero que o usuário tenha.
+<br>
+<br>
 
+### ====== EVENTOS DO REPORT ======
 
-* >> EVENTOS DO REPORT:
-*
 * 1 - INITIALIZATION
 * 2 - AT-SELECTION-SCREEN
 * 3 - START-OF-SELECTION  (uso sempre antes de começar o código, abaixo dos INCLUDES)
 * 4 - END-OF-SELECTION  (uso sempre pra encerrar o código)
-* 5 - TOP-OF-PAGE  (já em desuso, quase)
-* 6 - AT-LINE-SELECTION  (já em desuso, quase)
+* 5 - TOP-OF-PAGE  (já em desuso, quase) {Não vamos usar na Academia}
+* 6 - AT-LINE-SELECTION  (já em desuso, quase) {Não vamos usar na Academia}
+<br>
+<br>
 
+### ====== OBS GERAIS ======
 
-* >> OBS GERAIS:
-*
 * SEMPRE terminar toda ação com PONTO FINAL
 * SEMPREEEE salvar, conferir (compilar), ativar pra, então, verificar
 * F1 em cima do comando  ->
@@ -149,7 +152,7 @@ Obs.: Meu programa precisa sempre ser associado a um pacote e uma ordem de trans
 * 'WRITE /.' OU 'SKIP <num linhas>.'  ->  Pula linha
 * 'WRITE: 'texto', '/', p_variav.'  ->  Imprime mais de uma coisa ao mesmo tempo
 
-* 'PARAMETERS p_variav TYPE <o tipo> <OBLIGATORY (se precisar)>.'  ->  Como criar uma tela de seleção
+* 'PARAMETERS p_variav TYPE <tipo> <OBLIGATORY (se precisar)>.'  ->  Como criar uma tela de seleção
 * 'PARAMETERS p_variav RADIOBUTTON GROUP <g1>.'  ->  Cria um botão clicável
 * Depois de criar > 'Elementos de texto' > 'Textos de seleção',
 * eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa variável.

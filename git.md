@@ -21,10 +21,9 @@
 * `git pull`  //  Puxa do repositório remoto {Ele vai conferir (PUXAR) aquele meu repositório do pc com o do GitHub, atualizando ele, pra ver se está tudo certo.}
 <br>
 <br>
-<br>
 
 ### ====== GITHUB ======
-
+<br>
 > #### PARA SUBIR UM PROJETO DO PC PRO HUB
 1. PRIMEIRO crio o repositório no GitHub
 2. `git init`
@@ -44,7 +43,6 @@
 > #### PARA BAIXAR UM PROJETO DO HUB PRO PC
 1. `git clone <link do repositório>` eu trago o repositório pra minha máquina
 2. `git pull` vai fazer eu sempre poder conferir se talvez não tem nada novo no meu remoto pra atualizar o meu local.
-<br>
 <br>
 <br>
 
