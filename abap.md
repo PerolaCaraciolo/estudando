@@ -324,7 +324,14 @@ OBS.: No geral, **essa estrutura de blocos vai estar lá no INCLUDES**, pelos bl
 
 ### ====== DEBUG ======
 
-- `/H` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add "`SY`" `>` Enter `>` 2 cliques no "SY", me abre **todas as variáveis do sistema**.
+- `/H` + `F8` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add "`SY`" `>` Enter `>` 2 cliques no "SY", me abre **todas as variáveis do sistema**.
+- `F5` vai fazendo a linha de código executada debugada "andar".
+
+<br>
+
+*Desktop 1*: Mostra poucas linhas<br>
+*Desktop 2*: Mostra tipo uma "cascata", de quem chamou quem, que chamou quem, que...<br>
+*Desktop 3*: Mostra programas e variáveis
 
 <br>
 
