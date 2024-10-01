@@ -1,5 +1,7 @@
 > OBS.: O que está entre < ... > é campo de adição de valor, que pode ser diferente do que está de exemplo!
 
+> OBS.2: Lembrar de sempre fazer uma observação básica e direta pras pessoas saberem o que são minhas variáveis e afins!
+
 ### ====== TRANSAÇÕES ======
 
 - `SE38` - Para manipular programas (abre o editor ABAP/4)
@@ -78,6 +80,7 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 - `D` - Datas YYYYMMDD
 - `T` - Horas HHMMSS
 - `P` `DECIMALS <3>.` - Número com <> casas decimais
+- `BUKRS` - Código de empresa (um CHAR4 com suas características)
 - `STRING` - Strings de tamanhos variáveis
 - `X` - Valores binários ou hexadecimais (transferências de dados de baixo nível)
 - `QUAN` - Quantidades físicas (pode ter decimais tbm) (?)
@@ -87,6 +90,7 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 - uzeit - Hora do servidor
 - datlo - Data do meu servidor
 - timlo - Hora do meu servidor
+- DATS E TIMS - Usados mais pra tabelas (??)
 
 <br>
 
@@ -285,32 +289,55 @@ OBS.: Ter ATENÇÃO com **divisões por 0!!** Eu preciso tratar com IF essa cond
 
 ### ====== CASE ======
 
-*CASE 'X'.
-*  WHEN <opção1>.
-*    <ação>.
-*  WHEN <opção2>.
-*    <ação>.
-*  WHEN OTHERS.
-*    <ação>.
-*  ENDCASE.
+`CASE '<X>'.`
+
+`...WHEN <opção1>.`
+
+`.......<ação>.`
+
+`...WHEN <opção2>.`
+
+`.......<ação>.`
+
+`...WHEN OTHERS.`
+
+`.......<ação>.`
+
+`ENDCASE.`
+
+<br>
+
+OBS.: Se eu estiver tratando também de resposta pra **RADIOBUTTON**, também trato com "`X`".
 
 <br>
 
 ### ====== DEIXAR EM BLOCOS ======
 
-*SELECTION-SCREEN BEGIN OF BLOCK <b1> WITH FRAME TITLE text-001.
-*  PARAMETERS ... .
-*SELECTION-SCREEN END OF BLOCK <b1>.
-*
-*SELECTION-SCREEN BEGIN OF BLOCK <b2> WITH FRAME TITLE text-002.
-*  PARAMETERS ... .
-*SELECTION-SCREEN END OF BLOCK <b2>.
-*
-*ETC
-*
-* Após criá-los, eu clico 2x nos "text" pra criar o título de cada bloco.
-* Elementos de texto > Símbolos de texto
-* No geral, ele pode tá lá no INCLUDES, por trazer nos blocos as telas de seleção que quero que o usuário tenha.
+`SELECTION-SCREEN BEGIN OF BLOCK <b1> WITH FRAME TITLE text-<001>.`
+
+`.........PARAMETERS: p_vari01 TYPE <tipo>, p_vari02 TYPE <tipo>.`
+
+`SELECTION-SCREEN END OF BLOCK <b1>.`
+
+Bloco 1 ^^^^
+
+`SELECTION-SCREEN BEGIN OF BLOCK <b2> WITH FRAME TITLE text-<002>.`
+
+`.........PARAMETERS: p_vari03 TYPE <tipo>, p_vari04 TYPE <tipo>.`
+
+`SELECTION-SCREEN END OF BLOCK <b2>.`
+
+Bloco 2 ^^^^
+
+- Após criá-los, eu clico 2x nos "`text`" pra criar o objeto e ele direcionar direto para...
+- Elementos de texto `>` Símbolos de texto;
+- Esse textinho que eu altero lá, vai ser justamente o **título de cada bloco**;
+- **Se eu erro esse textinho**, preciso excluir o que foi criado antes e fazer de novo só ese processo;
+- Posso separar em **quantos blocos mais eu quiser**. Ex.: "*Operadores*" e "*Operações*".
+
+<br>
+
+OBS.: No geral, **essa estrutura de blocos vai estar lá no INCLUDES**, pelos blocos delimitarem justamente as telas de seleção que quero que o usuário receba.
 
 <br>
 
@@ -320,7 +347,7 @@ OBS.: Ter ATENÇÃO com **divisões por 0!!** Eu preciso tratar com IF essa cond
 
 <br>
 
-### ====== OBS GERAIS ======
+### ====== OBS. GERAIS ======
 
 - ABAP é **procedural**: faz a leitura de cima pra baixo;
 * Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***;
