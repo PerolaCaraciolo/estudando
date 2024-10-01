@@ -41,7 +41,8 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 1. SE93 `>` 'ZnomeTransação'
 2. add o texto breve descrição `>` Programa e tela de seleção (Transação de report), por ser um programa executável
 3. Programa: RFITEMGL (usei isso na primeira) (?)
-4. Marco a mais apenas opções em Capacidade GUI: `HTML`, `JAVA` E `WINDOWS`
+4. Transação Professional User (já marcado)
+5. Marco a mais apenas opções em Capacidade GUI: `HTML`, `JAVA` E `WINDOWS`
 
 <br>
 
