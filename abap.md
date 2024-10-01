@@ -22,11 +22,11 @@
 
 ### ====== CRIANDO UM PROGRAMA ======
 
-1. SE38 > 'ZnomePrograma'
-2. add um título > Programa Executável > Cliente Produtivo
-3. add o Package 'ZACADEMIA_OUT_24'     *{Na academia}*
-4. add a ordem, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
-- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)
+1. SE38 `>` 'ZnomePrograma'
+2. add um título `>` Programa Executável `>` Cliente Produtivo
+3. add o `Package` 'ZACADEMIA_OUT_24'     *{Na academia}*
+4. add a `ordem`, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
+- ASSIM, eu vou ter criado um PROGRAMA EXECUTÁVEL (= REPORTs)
 
 Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
@@ -34,28 +34,49 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 
 ### ====== CRIANDO TRANSAÇÕES ======
 
-1. SE93 > 'ZnomeTransação'
-2. add o texto breve descrição > Programa e tela de seleção (Transação de report), por ser um programa executável
-3. Programa: RFITEMGL (usei isso na primeira (?) )
-4. Marco a mais apenas opções em Capacidade GUI: HTML, JAVA E WINDOWS
+1. SE93 `>` 'ZnomeTransação'
+2. add o texto breve descrição `>` Programa e tela de seleção (Transação de report), por ser um programa executável
+3. Programa: RFITEMGL (usei isso na primeira) (?)
+4. Marco a mais apenas opções em Capacidade GUI: `HTML`, `JAVA` E `WINDOWS`
+
+Obs.: Eu posso colocar programas que eu criei para rodarem dentro dessa transação. Por ex., eu ter criado uma calculadora e colocar ela pra rodar quando a determinada transação "tal" foi chamada.
 <br>
+<br>
+
+### ====== WRITE ======
+
+Comando para impressões na tela.
+
+> `WRITE v_variavelGlobal.`
+
+> `WRITE: p_vari01, p_vari02.`
+
+> `WRITE: '<texto>, /, p_variav.`
+
+> `WRITE: /'<texto>.` (Será ?)
+
+> `WRITE /.` OU `SKIP <num linhas>.` : Quebra uma linha OU mais de uma
+
+> `WRITE UNLINE.` : Imprime "uma linha" de hífens no código
+
 <br>
 
 ### ====== TYPES ======
+<br>
 
 > TIPOS DE DADOS:
-- `CHAR10` / `CHAR<30>` / `c LENGTH <30>` - Strings de tamanho fixo
-- `curr` - Valores monetários ($$)
-- `i` - Números inteiros
-- `f` - Float (maior precisão decimal)
-- `n` `LENGTH <8>.` - String numérico (números não calculados)
-- `d` - Datas YYYYMMDD
-- `t` - Horas HHMMSS
-- `p` `DECIMALS <3>.` - Número com <> casas decimais
-- `string` - Strings de tamanhos variáveis
-- `x` - Valores binários ou hexadecimais (transferências de dados de baixo nível)
-- `quan` - Quantidades físicas (pode ter decimais tbm) (?)
-- `clnt` - Representa o cliente
+- `CHAR10` / `CHAR<30>` / `C LENGTH <30>` - Strings de tamanho fixo
+- `CURR` - Valores monetários ($$)
+- `I` - Números inteiros
+- `F` - Float (maior precisão decimal)
+- `N` `LENGTH <8>.` - String numérico (números não calculados)
+- `D` - Datas YYYYMMDD
+- `T` - Horas HHMMSS
+- `P` `DECIMALS <3>.` - Número com <> casas decimais
+- `STRING` - Strings de tamanhos variáveis
+- `X` - Valores binários ou hexadecimais (transferências de dados de baixo nível)
+- `QUAN` - Quantidades físicas (pode ter decimais tbm) (?)
+- `CLNT` - Representa o cliente
 - `datum` - Data do servidor
 - `uzeit` - Hora do servidor
 - `datlo` - Data do meu servidor
@@ -63,16 +84,62 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 <br>
 
 > VARIÁVEIS DE SISTEMA
-- `sy-datum` - Data atual do sistema YYYYMMDD
-- `sy-uzeit` - Hora atual do sistema HHMMSS
-- `sy-datlo` - Data da última alteração YYYYMMDD
-- `sy-timlo` - Hora da última alteração HHMMSS
-- `sy-uname` - Nome do usuário que está executando
+- `SY-DATUM` - Data atual do sistema YYYYMMDD
+- `SY-UZEIT` - Hora atual do sistema HHMMSS
+- `SY-DATLO` - Data da última alteração YYYYMMDD
+- `SY-TIMLO` - Hora da última alteração HHMMSS
+- `SY-UNAME` - Nome do usuário que está executando
 - `sy-langu` - Idioma do usuário logado
 - `sy-ucomm` - Um comando do usuário. Bom pra interação com botões
 - `sy-pagno` - Número da página atual
 - `sy-tcode` - Código da transação atual
 - `sy-repid` - Nome do programa (report ou função) executado
+<br>
+<br>
+
+### ====== DECLARAR VARIÁVEL ======
+
+Declaração dos espaços de memória para guardar informações.
+
+> `DATA v_variavelGlobal(<20>) TYPE <C>.`
+
+> `DATA: v_variavelGlobal<10> TYPE <I>, l_variavelLocal<20> TYPE <C>.`
+
+> `DATA v_variavel LIKE CHAR<10>.`
+
+> `DATA v_variavelGlobal TYPE <C> LENGTH <30>.`
+
+> `DATA l_variavelLocal VALUE '<1>'.`
+
+- Se a variável estiver vazia e o tipo dela for INTEIRO, vai ser impresso '0' (não tem 'not null' aqui);
+- `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
+- Posso usar tanto `TYPE` quanto `LIKE` para definir a tipagem da variável.
+<br>
+<br>
+
+### ====== CRIAR PARAMETERS ======
+
+As telas de seleção dos usuários. "O imput".
+
+> `PARAMETERS p_variav TYPE <tipo> OBLIGATORY(se precisar).`
+
+> `PARAMETERS: p_vari01 TYPE <CHAR10>, p_vari02 TYPE <CHAR30>`
+
+> `PARAMETERS p_variav(<15>) TYPE <C> DEFAULT '<texto>'.` : Mostra uma caixa com preenchimento automático que o usuário não adiciona.
+
+1. Depois de criar `>` Elementos de texto `>` Textos de Seleção
+2. Lá eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa tela de seleção
+3. **Não esquecer** de ***SALVAR*** e ***ATIVAR*** nessa etapa também, pra poder voltar pro executável pra ativá-lo também.
+
+É uma boa prática sempre iniciar os nomes de variáveis provindas de parameters com `p_......` e daí, sobram apenas mais 6 dígitos para seu nome
+
+<br>
+
+> RADIOBUTTON:
+
+Criação de botões clicáveis.
+
+`PARAMETERS: p_vari01 RADIOBUTTON GROUP <g1>, p_vari02 RADIOBUTTON GROUP <g1>.`
 <br>
 <br>
 
@@ -88,12 +155,15 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 
 > No programa: 
 
-> `REPORT ZnomePrograma.`
-`INCLUDE: ZnomePrograma_TOP,`
-`.........ZnomePrograma_SEL.`
-`START-OF-SELECTION.`
-`END-OF-SELECTION.`
+`REPORT ZnomePrograma.`
 
+`INCLUDE: ZnomePrograma_TOP,`
+
+`.........ZnomePrograma_SEL.`
+
+`START-OF-SELECTION.`
+
+`END-OF-SELECTION.`
 <br>
 <br>
 
@@ -102,9 +172,9 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 *IF <condição>.
 * <ação>.
 *ENDIF.
-*
+
 * == OU ==
-*
+
 *IF <condição>.
 *  <ação>.
 *ELSEIF <condição>.
@@ -112,9 +182,9 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 *ELSE.
 * <ação>.
 *ENDIF.
-*
+
 * == OU ==
-*
+
 *IF <condição>.
 * <ação>.
 *ELSE.
@@ -158,77 +228,28 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 
 ### ====== EVENTOS DO REPORT ======
 
-* 1 - INITIALIZATION
-* 2 - AT-SELECTION-SCREEN
-* 3 - START-OF-SELECTION  (uso sempre antes de começar o código, abaixo dos INCLUDES)
-* 4 - END-OF-SELECTION  (uso sempre pra encerrar o código)
-* 5 - TOP-OF-PAGE  (já em desuso, quase) {Não vamos usar na Academia}
-* 6 - AT-LINE-SELECTION  (já em desuso, quase) {Não vamos usar na Academia}
-<br>
-<br>
-
-### ====== DECLARAR VARIÁVEL ======
-
-> `DATA v_variavelGlobal(<20>) TYPE <c>.`
-
-> `DATA: v_variavelGlobal<10> TYPE <i>, l_variavelLocal<20> TYPE <c>.`
-
-> `DATA v_variavel LIKE char<10>.`
-
-> `DATA v_variavelGlobal TYPE <c> LENGTH <30>`
-
-> `DATA l_variavelLocal VALUE '<1>'.`
-
-- Se a variável estiver vazia e o tipo dela for INTEIRO, vai ser impresso '0' (não tem 'not null' aqui);
-- `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
-<br>
-<br>
-
-### ====== PARAMETERS ======
-
-
+1. INITIALIZATION
+2. AT-SELECTION-SCREEN
+3. START-OF-SELECTION  (uso sempre antes de começar o código, abaixo dos INCLUDES)
+4. END-OF-SELECTION  (uso sempre pra encerrar o código)
+5. TOP-OF-PAGE  (já em desuso, quase) {Não vamos usar na Academia}
+6. AT-LINE-SELECTION  (já em desuso, quase) {Não vamos usar na Academia}
 <br>
 <br>
 
 ### ====== OBS GERAIS ======
 
-- Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z" ou "Y"***;
-- `<>`: Diferente
-- `=`: Igual
+* Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***
+- SEMPRE terminar toda ação no código com `.`
+* `<>`: Diferente
+* `=`: Igual
+- `F1` em cima do comando - SAP Help, ajuda técnica ou documentação daquele comando
+- `F4` no campo de entrada - Search Help, lista de valores possíveis para aquele campo específico
 <br>
 
 > Comentários:
 - `*` OU `"`: Comenta o código, no início ou no meio dele, respectivamente
 - `ctrl + <` OU `ctrl + >`: Comenta e descomenta um trecho todo de código
 
+<br>
 
-* SEMPRE terminar toda ação com PONTO FINAL
-* SEMPREEEE salvar, conferir (compilar), ativar pra, então, verificar
-* F1 em cima do comando  -  SAP Help, ajuda técnica ou documentação daquele comando
-* F4 no campo de entrada - Search Help, lista de valores possíveis para aquele campo específico
-
-* 'TYPE' ou 'LIKE'  -  Definem a tipagem
-* 'UNLINE.' - Imprime "uma linha" no código
-
-
-
-* 'WRITE /.' OU 'SKIP <num linhas>.'  -  Pula linha
-* 'WRITE: 'texto', '/', p_variav.'  -  Imprime mais de uma coisa ao mesmo tempo
-* 'WRITE: /'texto'.'
-
-
-* 'PARAMETERS p_variav TYPE <tipo> <OBLIGATORY (se precisar)>.'  -  Como criar uma tela de seleção
-* 'PARAMETERS p_variav RADIOBUTTON GROUP <g1>.'  -  Cria um botão clicável
-* Depois de criar > 'Elementos de texto' > 'Textos de seleção',
-* eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa variável.
-* 'PARAMETERS p_variav(<15>) TYPE c DEFAULT '<Vem isso impresso sem poder alterar>'.' - Mostra uma caixa com preenchimento automático
-* Não esquecer de salvar e ativar lá também!
-
-
-
-
-
-
-OK * 'v_variavel' OU 'l_variavel'  -  Variável global OU variável global
-OK * 'DATA v_variavel TYPE tipo.'  -  Cria variável
-OK * Se a variável tiver vazia e for inteiro, ela imprime '0' (não tem 'not null')
