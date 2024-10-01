@@ -10,7 +10,7 @@
 - `/H` - Ativa o debug
 * 1. `SE01` - Principal. Verifica o conteúdo das ordens gerais
 * 2. `SE09` - Simplificada. Verifica ordens de objetos Client Idependent (Workbench Organizer)
-* 3. `SE10` - Gerenciador de requests (Consigo consultar as tabelas que criei (?))
+* 3. `SE10` - Gerenciador de requests (Consigo consultar as tabelas que criei) (??)
 - `/O<SE38>` - Abre a transação selecionada numa nova janela
 - `/N<SE38>` - Abre a transação selecionada no lugar daquela mesma janela
 
@@ -23,10 +23,10 @@
 ### ====== CRIANDO UM PROGRAMA ======
 
 1. SE38 `>` 'ZnomePrograma'
-2. add um título `>` Programa Executável `>` Cliente Produtivo
+2. add um título `>` Programa Executável `>` Cliente Produtivo (pq coloquei executável)
 3. add o `Package` 'ZACADEMIA_OUT_24'     *{Na academia}*
 4. add a `ordem`, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
-- ASSIM, eu vou ter criado um PROGRAMA EXECUTÁVEL (= REPORTs)
+- ASSIM, eu vou ter criado um PROGRAMA EXECUTÁVEL (= REPORTs; = REQUESTs) (??)
 
 Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
@@ -45,7 +45,7 @@ Obs.: Eu posso colocar programas que eu criei para rodarem dentro dessa transaç
 
 ### ====== WRITE ======
 
-Comando para impressões na tela.
+Comando para impressões na tela e em variáveis, já adequando a escrita pra linguagem definida.
 
 > `WRITE v_variavelGlobal.`
 
@@ -53,7 +53,7 @@ Comando para impressões na tela.
 
 > `WRITE: '<texto>, /, p_variav.`
 
-> `WRITE: /'<texto>.` (Será ?)
+> `WRITE: /'<texto>.` OU `WRITE: / '<texto>', v_variavelGlobal.` (Será ?)
 
 > `WRITE /.` OU `SKIP <num linhas>.` : Quebra uma linha OU mais de uma
 
@@ -77,10 +77,11 @@ Comando para impressões na tela.
 - `X` - Valores binários ou hexadecimais (transferências de dados de baixo nível)
 - `QUAN` - Quantidades físicas (pode ter decimais tbm) (?)
 - `CLNT` - Representa o cliente
-- `datum` - Data do servidor
-- `uzeit` - Hora do servidor
-- `datlo` - Data do meu servidor
-- `timlo` - Hora do meu servidor
+- `TIMESTAMP` - Data e hora do momento que rodou YYYYMMDDHHMMSS
+- datum - Data do servidor
+- uzeit - Hora do servidor
+- datlo - Data do meu servidor
+- timlo - Hora do meu servidor
 <br>
 
 > VARIÁVEIS DE SISTEMA
@@ -109,9 +110,11 @@ Declaração dos espaços de memória para guardar informações.
 
 > `DATA v_variavelGlobal TYPE <C> LENGTH <30>.`
 
-> `DATA l_variavelLocal VALUE '<1>'.`
+> `DATA l_variavelLocal TYPE I VALUE '<1>'.` : Declarando já com valor
 
 - Se a variável estiver vazia e o tipo dela for INTEIRO, vai ser impresso '0' (não tem 'not null' aqui);
+- Para declarar valores depois, coloco apos o *evento INITIALIZATION* (caso eu tenha usado ele): `v_variavelGloval = 12.` / `l_variavelLocal = 1.`;
+- Posso declarar desse mesmo jeito acima, lá dentro do *INCLUDES* tbm;
 - `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
 - Posso usar tanto `TYPE` quanto `LIKE` para definir a tipagem da variável.
 <br>
@@ -119,7 +122,7 @@ Declaração dos espaços de memória para guardar informações.
 
 ### ====== CRIAR PARAMETERS ======
 
-As telas de seleção dos usuários. "O imput".
+As telas de seleção dos usuários e, sempre, estarão logo em cima. "O imput".
 
 > `PARAMETERS p_variav TYPE <tipo> OBLIGATORY(se precisar).`
 
@@ -128,10 +131,12 @@ As telas de seleção dos usuários. "O imput".
 > `PARAMETERS p_variav(<15>) TYPE <C> DEFAULT '<texto>'.` : Mostra uma caixa com preenchimento automático que o usuário não adiciona.
 
 1. Depois de criar `>` Elementos de texto `>` Textos de Seleção
-2. Lá eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa tela de seleção
+2. Lá eu seleciono a variável que desejo e consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa tela de seleção
 3. **Não esquecer** de ***SALVAR*** e ***ATIVAR*** nessa etapa também, pra poder voltar pro executável pra ativá-lo também.
 
-É uma boa prática sempre iniciar os nomes de variáveis provindas de parameters com `p_......` e daí, sobram apenas mais 6 dígitos para seu nome
+- É uma boa prática sempre iniciar os nomes de variáveis provindas de parameters com `p_......` e daí, sobram apenas mais 6 dígitos para seu nome.
+
+OBS.: Variáveis de tela de seleção NÃO PODEM ser criadas antes ou fora do PARAMETERS.
 
 <br>
 
@@ -143,15 +148,16 @@ Criação de botões clicáveis.
 <br>
 <br>
 
-### ====== SPLIT E CONCATENATE ======
-
-<br>
-<br>
-
 ### ====== INCLUDES ======
 
-É um pedaço de programa que não tem em tela;
-Um programa, mas que não é executável, por isso que quando eu uso no código, preciso clicar duas vezes para criar realmente esse objeto, mas lá eu só vou me preocupar com o título;
+É um pedaço de programa que não tem em tela.<br>
+Um programa, mas que não é executável, por isso que quando eu uso no código, preciso clicar duas vezes nele para criar realmente esse objeto, mas nesta outra tela, eu só vou me preocupar com o título.<br>
+Vem logo abaixo do `REPORT ZnomePrograma.`
+
+- `ZnomePrograma_TOP`, eu arrasto todas as variáveis declaradas (DATA) que vou utilizar, pra cá.
+- `ZnomePrograma_SEL`, eu arrasto todas as telas de seleção (PARAMETERS) que vou utilizar, pra cá.
+<br>
+<br>
 
 > No programa: 
 
@@ -164,6 +170,56 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 `START-OF-SELECTION.`
 
 `END-OF-SELECTION.`
+
+OBS.: Dá pra usar o INCLUDE de outra pessoa.
+
+<br>
+
+### ====== SPLIT E CONCATENATE ======
+
+<br>
+<br>
+
+### ====== EVENTOS DO REPORT ======
+
+Não são necessariamente obrigatórios, mas são ideais.
+
+1. `INITIALIZATION.`: 
+
+O 'quick start' da transação, precisa acontecer antes das telas de seleção serem apresentadas;<br>
+Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE).<br>
+Uso **para inicializar as variáveis** e definir valores tbm.<br>
+
+2. `AT-SELECTION-SCREEN`: 
+
+Pós tela de seleção exibida e antes da lógica de processamento principal.<br>
+Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!<br>
+Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)<br>
+
+3. **`START-OF-SELECTION`**:
+
+Pós os INCLUDES.<br>
+Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro.<br>
+Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.<br>
+
+4. **`END-OF-SELECTION`**:
+
+Uso sempre pra encerrar o código principal.<br>
+Posso emitir msgs de finalização com ele, inclusive.<br>
+Ex.: `END-OF-SELECTION.` + `WRITE: /'Fim da execução do programa.'.`
+
+5. `TOP-OF-PAGE`:
+
+Usado para criar cabeçalhos fixos pros inícios das páginas de saída da transação.<br>
+Já em desuso, quase. *{Não vamos usar na Academia}*<br>
+
+6. `AT-LINE-SELECTION`:
+
+Para relatórios.<br>
+Comando gerado quando o usuário clica em uma linha específica da saída. Posso adicionar alguma lógica para acontecer por causa desse clique.<br>
+Já em desuso, quase. *{Não vamos usar na Academia}*<br>
+
+- OBS.: Quando o programa pode demorar demais, o ideal é que eu já coloque o "`1`" e guarde uma `v_hora = SY-UZEIT`, ou `TIMESTAMP` pra ter também a hora que aquilo começou. Lembrando que se uso o "`1`", tenho que usar o "`3`" e "`4`"!
 <br>
 <br>
 
@@ -226,30 +282,55 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 <br>
 <br>
 
-### ====== EVENTOS DO REPORT ======
+### ====== DEBUG ======
 
-1. INITIALIZATION
-2. AT-SELECTION-SCREEN
-3. START-OF-SELECTION  (uso sempre antes de começar o código, abaixo dos INCLUDES)
-4. END-OF-SELECTION  (uso sempre pra encerrar o código)
-5. TOP-OF-PAGE  (já em desuso, quase) {Não vamos usar na Academia}
-6. AT-LINE-SELECTION  (já em desuso, quase) {Não vamos usar na Academia}
+- `/H` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add `SY` `>` Enter `>` 2 cliques no "SY", me abre todas as variáveis do sistema.
 <br>
 <br>
 
 ### ====== OBS GERAIS ======
 
-* Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***
-- SEMPRE terminar toda ação no código com `.`
-* `<>`: Diferente
-* `=`: Igual
+- ABAP é **procedural**: faz a leitura de cima pra baixo;
+* Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***;
+- **SEMPRE** terminar toda ação no código com `.`;
+* O SAP / ABAP **não é case sensitive**, mas não aceita caracteres;
+- Especificações do usuário `>` Dados usuário `>` Valores fixos : Encontro / altero minhas preferências de formatação do sistema;
+* O `compilador` sempre vai apontar o erro (caso haja) na linha exata ou na anterior;
+
+> TimeStamp:
+- Não é uma Variável do Sistema e sim um Tipo!
+- Eu posso guardá-la em uma variável utilizando o datum e o uzeit, por exemplo;
+
+**DECLARANDO:**<br>
+
+ 1. `Data v_timestamp TYPE TIMESTAMP.`
+
+ 2. `v_timestamp = SY-DATUM && SY-UZEIT.`
+
+ 3. `WRITE v_timestamp.`
+ 
+ OU
+
+ 3. `DATA: l_data TYPE D, l_hora TYPE T`.
+ 4. `l_data = v_timestamp(8)` : Só os primeiros 8 caraceres da data
+ 5. `l_hora = v_timestamp+8(6)` : Próximos 6 caracteres da hora
+
+
+> Atalhos:
 - `F1` em cima do comando - SAP Help, ajuda técnica ou documentação daquele comando
 - `F4` no campo de entrada - Search Help, lista de valores possíveis para aquele campo específico
-<br>
+- `Ctrl + S` : Salva
+- `Ctrl + F2` : Compila (confere)
+- `Ctrl + F3` : Ativa
+- `F3` : Volta (??)
+- `F8` : Executa
+
+> Operadores:
+- `<>`: Diferente
+- `=`: Igual
 
 > Comentários:
 - `*` OU `"`: Comenta o código, no início ou no meio dele, respectivamente
 - `ctrl + <` OU `ctrl + >`: Comenta e descomenta um trecho todo de código
 
 <br>
-
