@@ -136,12 +136,12 @@ As telas de seleção dos usuários e, sempre, estarão logo em cima. "O imput".
 
 > `PARAMETERS p_variav TYPE <tipo> OBLIGATORY(se precisar).`
 
-> `PARAMETERS: p_vari01 TYPE <CHAR10>, p_vari02 TYPE <CHAR30>`
+> `PARAMETERS: p_vari01 TYPE <CHAR10>, p_vari02 TYPE <CHAR30>.`
 
 > `PARAMETERS p_variav(<15>) TYPE <C> DEFAULT '<texto>'.` : Mostra uma caixa com preenchimento automático que o usuário não adiciona.
 
-1. Depois de criar `>` Elementos de texto `>` Textos de Seleção
-2. Lá eu seleciono a variável que desejo e consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa tela de seleção
+1. Depois de criar `>` Elementos de texto `>` Textos de Seleção;
+2. Lá eu seleciono a variável que desejo e consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa tela de seleção;
 3. **Não esquecer** de ***SALVAR*** e ***ATIVAR*** nessa etapa também, pra poder voltar pro executável pra ativá-lo também.
 
 - É uma boa prática sempre iniciar os nomes de variáveis provindas de parameters com `p_......` e daí, sobram apenas mais 6 dígitos para seu nome.
@@ -166,22 +166,18 @@ Criação de botões clicáveis.
 Um programa, mas que não é executável, por isso que quando eu uso no código, preciso clicar duas vezes nele para criar realmente esse objeto, mas nesta outra tela, eu só vou me preocupar com o título.<br>
 Vem logo abaixo do `REPORT ZnomePrograma.`
 
-- `ZnomePrograma_TOP`, eu arrasto todas as variáveis declaradas (DATA) que vou utilizar, pra cá.
-- `ZnomePrograma_SEL`, eu arrasto todas as telas de seleção (PARAMETERS) que vou utilizar, pra cá.
+- `ZnomePrograma_TOP.`, eu arrasto todas as variáveis declaradas (DATA) que vou utilizar, pra cá.
+- `ZnomePrograma_SEL.`, eu arrasto todas as telas de seleção (PARAMETERS) que vou utilizar, pra cá.
 
 <br>
 
 > No programa: 
 
-`REPORT ZnomePrograma.`
-
-`INCLUDE: ZnomePrograma_TOP,`
-
-`.........ZnomePrograma_SEL.`
-
-`START-OF-SELECTION.`
-
-`END-OF-SELECTION.`
+1. `REPORT ZnomePrograma.`
+2. `INCLUDE: ZnomePrograma_TOP,`
+3. `.........ZnomePrograma_SEL.`
+4. `START-OF-SELECTION.`
+5. `END-OF-SELECTION.`
 
 <br>
 
@@ -201,36 +197,36 @@ Não são necessariamente obrigatórios, mas são ideais.
 1. `INITIALIZATION.`: 
 
 - O 'quick start' da transação, precisa acontecer antes das telas de seleção serem apresentadas;
-- Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE).
+- Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE);
 - Uso **para inicializar as variáveis** e definir valores tbm.
 
 2. `AT-SELECTION-SCREEN`: 
 
-- Pós tela de seleção exibida e antes da lógica de processamento principal.
+- Pós tela de seleção exibida e antes da lógica de processamento principal;
 - Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!
 - Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)
 
 3. **`START-OF-SELECTION`**:
 
-- Pós os INCLUDES.
-- Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro.
+- Pós os INCLUDES;
+- Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro;
 - Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.
 
 4. **`END-OF-SELECTION`**:
 
-- Uso sempre pra encerrar o código principal.
-- Posso emitir msgs de finalização com ele, inclusive.
+- Uso sempre pra encerrar o código principal;
+- Posso emitir msgs de finalização com ele, inclusive;
 - Ex.: `END-OF-SELECTION.` + `WRITE: /'Fim da execução do programa.'.`
 
 5. `TOP-OF-PAGE`:
 
-- Usado para criar cabeçalhos fixos pros inícios das páginas de saída da transação.
+- Usado para criar cabeçalhos fixos pros inícios das páginas de saída da transação;
 - Já em desuso, quase. *{Não vamos usar na Academia}*
 
 6. `AT-LINE-SELECTION`:
 
-- Para relatórios.
-- Comando gerado quando o usuário clica em uma linha específica da saída. Posso adicionar alguma lógica para acontecer por causa desse clique.
+- Para relatórios;
+- Comando gerado quando o usuário clica em uma linha específica da saída. Posso adicionar alguma lógica para acontecer por causa desse clique;
 - Já em desuso, quase. *{Não vamos usar na Academia}*
 
 <br>
@@ -241,11 +237,9 @@ OBS.: Quando o programa pode demorar demais, o ideal é que eu já coloque o "`1
 
 ### ====== IF ======
 
-`IF <condição>.`
-
-`....<ação>.`
-
-`ENDIF.`
+1. `IF <condição>.`
+2. `...<ação>.`
+3. `ENDIF.`
 
 <br>
 
@@ -253,33 +247,29 @@ OBS.: Quando o programa pode demorar demais, o ideal é que eu já coloque o "`1
 
 <br>
 
-`IF <condição>.`
+1. `IF <condição>.`
+2. `....<ação>.`
+3. `ELSEIF <condição>.`
+4. `....<ação>.`
+5. `ELSE.`
+6. `....<ação>.`
+7. `ENDIF.`
 
-`....<ação>.`
-
-`ELSEIF <condição>.`
-
-`....<ação>.`
-
-`ELSE.`
-
-`....<ação>.`
-
-`ENDIF.`
+<br>
 
 > ou
 
-`IF <condição>.`
+<br>
 
-`....<ação>.`
+1. `IF <condição>.`
+2. `....<ação>.`
+3. `ELSE.`
+4. `....<ação>.`
+5. `ENDIF.`
 
-`ELSE.`
+<br>
 
-`....<ação>.`
-
-`ENDIF.`
-
-* **Com RADIOBUTTON**, eu uso assim: `IF p_variav 'X'.` (é a forma que ele vai entender que aquela opção é que está selecionada.
+* ***Com RADIOBUTTON***, eu uso assim: `IF p_variav 'X'.` (é a forma que ele vai entender que aquela opção é que está selecionada.
 
 <br>
 
@@ -289,45 +279,36 @@ OBS.: Ter ATENÇÃO com **divisões por 0!!** Eu preciso tratar com IF essa cond
 
 ### ====== CASE ======
 
-`CASE '<X>'.`
-
-`...WHEN <opção1>.`
-
-`.......<ação>.`
-
-`...WHEN <opção2>.`
-
-`.......<ação>.`
-
-`...WHEN OTHERS.`
-
-`.......<ação>.`
-
-`ENDCASE.`
+1. `CASE '<X>'.`
+2. `...WHEN <opção1>.`
+3. `.......<ação>.`
+4. `...WHEN <opção2>.`
+5. `.......<ação>.`
+6. `...WHEN OTHERS.`
+7. `.......<ação>.`
+8. `ENDCASE.`
 
 <br>
 
-OBS.: Se eu estiver tratando também de resposta pra **RADIOBUTTON**, também trato com "`X`".
+OBS.: Se eu estiver tratando também de resposta pra ***RADIOBUTTON***, também trato com "`X`".
 
 <br>
 
 ### ====== DEIXAR EM BLOCOS ======
 
-`SELECTION-SCREEN BEGIN OF BLOCK <b1> WITH FRAME TITLE text-<001>.`
-
-`.........PARAMETERS: p_vari01 TYPE <tipo>, p_vari02 TYPE <tipo>.`
-
-`SELECTION-SCREEN END OF BLOCK <b1>.`
+1. `SELECTION-SCREEN BEGIN OF BLOCK <b1> WITH FRAME TITLE text-<001>.`
+2. `.........PARAMETERS: p_vari01 TYPE <tipo>, p_vari02 TYPE <tipo>.`
+3. `SELECTION-SCREEN END OF BLOCK <b1>.`
 
 Bloco 1 ^^^^
 
-`SELECTION-SCREEN BEGIN OF BLOCK <b2> WITH FRAME TITLE text-<002>.`
-
-`.........PARAMETERS: p_vari03 TYPE <tipo>, p_vari04 TYPE <tipo>.`
-
-`SELECTION-SCREEN END OF BLOCK <b2>.`
+4. `SELECTION-SCREEN BEGIN OF BLOCK <b2> WITH FRAME TITLE text-<002>.`
+5. `.........PARAMETERS: p_vari03 TYPE <tipo>, p_vari04 TYPE <tipo>.`
+6. `SELECTION-SCREEN END OF BLOCK <b2>.`
 
 Bloco 2 ^^^^
+
+<br>
 
 - Após criá-los, eu clico 2x nos "`text`" pra criar o objeto e ele direcionar direto para...
 - Elementos de texto `>` Símbolos de texto;
@@ -343,7 +324,7 @@ OBS.: No geral, **essa estrutura de blocos vai estar lá no INCLUDES**, pelos bl
 
 ### ====== DEBUG ======
 
-- `/H` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add `SY` `>` Enter `>` 2 cliques no "SY", me abre todas as variáveis do sistema.
+- `/H` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add "`SY`" `>` Enter `>` 2 cliques no "SY", me abre **todas as variáveis do sistema**.
 
 <br>
 
@@ -353,7 +334,7 @@ OBS.: No geral, **essa estrutura de blocos vai estar lá no INCLUDES**, pelos bl
 * Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***;
 - **SEMPRE** terminar toda ação no código com `.`;
 * O SAP / ABAP **não é case sensitive**, mas não aceita caracteres;
-- Especificações do usuário `>` Dados usuário `>` Valores fixos : Encontro / altero **minhas preferências de formatação do sistema**;
+- Especificações do usuário `>` Dados usuário `>` Valores fixos; : Encontro / altero **minhas preferências de formatação do sistema**;
 * O `compilador` sempre vai apontar o erro (caso haja) na linha exata ou na anterior;
 - Para considerar que o **RADIOBUTTON** está selecionado, sempre vou considerar `'X'` maiúsculo mesmo.
 
@@ -361,7 +342,7 @@ OBS.: No geral, **essa estrutura de blocos vai estar lá no INCLUDES**, pelos bl
 
 > TimeStamp:
 - Não é uma Variável do Sistema e sim um Tipo!
-- Eu posso guardá-la em uma variável utilizando o datum e o uzeit, por exemplo;
+- Eu posso guardá-la em uma variável utilizando o datum e o uzeit, por exemplo.
 
 Declarando:
 
@@ -371,10 +352,16 @@ Declarando:
 
  3. `WRITE v_timestamp.`
  
- ou
+ OU
 
- 3. `DATA: l_data TYPE D, l_hora TYPE T`.
+ 1. `Data v_timestamp TYPE TIMESTAMP.`
+
+ 2. `v_timestamp = SY-DATUM && SY-UZEIT.`
+
+ 3. `DATA: l_data TYPE D, l_hora TYPE T.`.
+
  4. `l_data = v_timestamp(8)` : Só os primeiros 8 caraceres da data
+ 
  5. `l_hora = v_timestamp+8(6)` : Próximos 6 caracteres da hora
 
 <br>
