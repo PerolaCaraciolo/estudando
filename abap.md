@@ -17,7 +17,7 @@
 * `SE43` - Criação de menus
 * `SE71` - Criação e manutenção de formulários SAPscripts
 * `CMOD` - Criação de projetos Exits (Field Exits, User Exits,...)
-<br>
+
 <br>
 
 ### ====== CRIANDO UM PROGRAMA ======
@@ -28,8 +28,10 @@
 4. add a `ordem`, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
 - ASSIM, eu vou ter criado um PROGRAMA EXECUTÁVEL (= REPORTs; = REQUESTs) (??)
 
-Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
+
+Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
+
 <br>
 
 ### ====== CRIANDO TRANSAÇÕES ======
@@ -39,8 +41,10 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 3. Programa: RFITEMGL (usei isso na primeira) (?)
 4. Marco a mais apenas opções em Capacidade GUI: `HTML`, `JAVA` E `WINDOWS`
 
-Obs.: Eu posso colocar programas que eu criei para rodarem dentro dessa transação. Por ex., eu ter criado uma calculadora e colocar ela pra rodar quando a determinada transação "tal" foi chamada.
 <br>
+
+Obs.: Eu posso colocar programas que eu criei para rodarem dentro dessa transação. Por ex., eu ter criado uma calculadora e colocar ela pra rodar quando a determinada transação "tal" foi chamada.
+
 <br>
 
 ### ====== WRITE ======
@@ -62,6 +66,7 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 <br>
 
 ### ====== TYPES ======
+
 <br>
 
 > TIPOS DE DADOS:
@@ -82,6 +87,7 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 - uzeit - Hora do servidor
 - datlo - Data do meu servidor
 - timlo - Hora do meu servidor
+
 <br>
 
 > VARIÁVEIS DE SISTEMA
@@ -95,7 +101,7 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 - `sy-pagno` - Número da página atual
 - `sy-tcode` - Código da transação atual
 - `sy-repid` - Nome do programa (report ou função) executado
-<br>
+
 <br>
 
 ### ====== DECLARAR VARIÁVEL ======
@@ -117,7 +123,7 @@ Declaração dos espaços de memória para guardar informações.
 - Posso declarar desse mesmo jeito acima, lá dentro do *INCLUDES* tbm;
 - `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
 - Posso usar tanto `TYPE` quanto `LIKE` para definir a tipagem da variável.
-<br>
+
 <br>
 
 ### ====== CRIAR PARAMETERS ======
@@ -136,6 +142,8 @@ As telas de seleção dos usuários e, sempre, estarão logo em cima. "O imput".
 
 - É uma boa prática sempre iniciar os nomes de variáveis provindas de parameters com `p_......` e daí, sobram apenas mais 6 dígitos para seu nome.
 
+<br>
+
 OBS.: Variáveis de tela de seleção NÃO PODEM ser criadas antes ou fora do PARAMETERS.
 
 <br>
@@ -145,7 +153,7 @@ OBS.: Variáveis de tela de seleção NÃO PODEM ser criadas antes ou fora do PA
 Criação de botões clicáveis.
 
 `PARAMETERS: p_vari01 RADIOBUTTON GROUP <g1>, p_vari02 RADIOBUTTON GROUP <g1>.`
-<br>
+
 <br>
 
 ### ====== INCLUDES ======
@@ -156,7 +164,7 @@ Vem logo abaixo do `REPORT ZnomePrograma.`
 
 - `ZnomePrograma_TOP`, eu arrasto todas as variáveis declaradas (DATA) que vou utilizar, pra cá.
 - `ZnomePrograma_SEL`, eu arrasto todas as telas de seleção (PARAMETERS) que vou utilizar, pra cá.
-<br>
+
 <br>
 
 > No programa: 
@@ -171,13 +179,15 @@ Vem logo abaixo do `REPORT ZnomePrograma.`
 
 `END-OF-SELECTION.`
 
+<br>
+
 OBS.: Dá pra usar o INCLUDE de outra pessoa.
 
 <br>
 
 ### ====== SPLIT E CONCATENATE ======
 
-<br>
+
 <br>
 
 ### ====== EVENTOS DO REPORT ======
@@ -186,69 +196,91 @@ Não são necessariamente obrigatórios, mas são ideais.
 
 1. `INITIALIZATION.`: 
 
-O 'quick start' da transação, precisa acontecer antes das telas de seleção serem apresentadas;<br>
-Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE).<br>
-Uso **para inicializar as variáveis** e definir valores tbm.<br>
+- O 'quick start' da transação, precisa acontecer antes das telas de seleção serem apresentadas;
+- Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE).
+- Uso **para inicializar as variáveis** e definir valores tbm.
 
 2. `AT-SELECTION-SCREEN`: 
 
-Pós tela de seleção exibida e antes da lógica de processamento principal.<br>
-Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!<br>
-Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)<br>
+- Pós tela de seleção exibida e antes da lógica de processamento principal.
+- Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!
+- Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)
 
 3. **`START-OF-SELECTION`**:
 
-Pós os INCLUDES.<br>
-Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro.<br>
-Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.<br>
+- Pós os INCLUDES.
+- Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro.
+- Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.
 
 4. **`END-OF-SELECTION`**:
 
-Uso sempre pra encerrar o código principal.<br>
-Posso emitir msgs de finalização com ele, inclusive.<br>
-Ex.: `END-OF-SELECTION.` + `WRITE: /'Fim da execução do programa.'.`
+- Uso sempre pra encerrar o código principal.
+- Posso emitir msgs de finalização com ele, inclusive.
+- Ex.: `END-OF-SELECTION.` + `WRITE: /'Fim da execução do programa.'.`
 
 5. `TOP-OF-PAGE`:
 
-Usado para criar cabeçalhos fixos pros inícios das páginas de saída da transação.<br>
-Já em desuso, quase. *{Não vamos usar na Academia}*<br>
+- Usado para criar cabeçalhos fixos pros inícios das páginas de saída da transação.
+- Já em desuso, quase. *{Não vamos usar na Academia}*
 
 6. `AT-LINE-SELECTION`:
 
-Para relatórios.<br>
-Comando gerado quando o usuário clica em uma linha específica da saída. Posso adicionar alguma lógica para acontecer por causa desse clique.<br>
-Já em desuso, quase. *{Não vamos usar na Academia}*<br>
+- Para relatórios.
+- Comando gerado quando o usuário clica em uma linha específica da saída. Posso adicionar alguma lógica para acontecer por causa desse clique.
+- Já em desuso, quase. *{Não vamos usar na Academia}*
 
-- OBS.: Quando o programa pode demorar demais, o ideal é que eu já coloque o "`1`" e guarde uma `v_hora = SY-UZEIT`, ou `TIMESTAMP` pra ter também a hora que aquilo começou. Lembrando que se uso o "`1`", tenho que usar o "`3`" e "`4`"!
 <br>
+
+OBS.: Quando o programa pode demorar demais, o ideal é que eu já coloque o "`1`" e guarde uma `v_hora = SY-UZEIT`, ou `TIMESTAMP` pra ter também a hora que aquilo começou. Lembrando que se uso o "`1`", tenho que usar o "`3`" e "`4`"!
+
 <br>
 
 ### ====== IF ======
 
-*IF <condição>.
-* <ação>.
-*ENDIF.
+`IF <condição>.`
 
-* == OU ==
+`....<ação>.`
 
-*IF <condição>.
-*  <ação>.
-*ELSEIF <condição>.
-* <ação>.
-*ELSE.
-* <ação>.
-*ENDIF.
+`ENDIF.`
 
-* == OU ==
-
-*IF <condição>.
-* <ação>.
-*ELSE.
-* <ação>.
-*ENDIF.
-*
-* Com RADIOBUTTON, eu uso assim: IF p_variav 'X' (é a forma que ele vai entender que aquela opção é que está selecionada.
 <br>
+
+> ou
+
+<br>
+
+`IF <condição>.`
+
+`....<ação>.`
+
+`ELSEIF <condição>.`
+
+`....<ação>.`
+
+`ELSE.`
+
+`....<ação>.`
+
+`ENDIF.`
+
+> ou
+
+`IF <condição>.`
+
+`....<ação>.`
+
+`ELSE.`
+
+`....<ação>.`
+
+`ENDIF.`
+
+* **Com RADIOBUTTON**, eu uso assim: `IF p_variav 'X'.` (é a forma que ele vai entender que aquela opção é que está selecionada.
+
+<br>
+
+OBS.: Ter ATENÇÃO com **divisões por 0!!** Eu preciso tratar com IF essa condição, senão eu quebro o sistema.
+
 <br>
 
 ### ====== CASE ======
@@ -261,7 +293,7 @@ Já em desuso, quase. *{Não vamos usar na Academia}*<br>
 *  WHEN OTHERS.
 *    <ação>.
 *  ENDCASE.
-<br>
+
 <br>
 
 ### ====== DEIXAR EM BLOCOS ======
@@ -279,13 +311,13 @@ Já em desuso, quase. *{Não vamos usar na Academia}*<br>
 * Após criá-los, eu clico 2x nos "text" pra criar o título de cada bloco.
 * Elementos de texto > Símbolos de texto
 * No geral, ele pode tá lá no INCLUDES, por trazer nos blocos as telas de seleção que quero que o usuário tenha.
-<br>
+
 <br>
 
 ### ====== DEBUG ======
 
 - `/H` `>` Desktop 3 `>` Coluna da direita, toco no espaço da variável e add `SY` `>` Enter `>` 2 cliques no "SY", me abre todas as variáveis do sistema.
-<br>
+
 <br>
 
 ### ====== OBS GERAIS ======
@@ -294,14 +326,17 @@ Já em desuso, quase. *{Não vamos usar na Academia}*<br>
 * Nomes de desenvolvimentos customizados (fora do padrão SAP) sempre ***iniciam com "Z..." ou "Y..."***;
 - **SEMPRE** terminar toda ação no código com `.`;
 * O SAP / ABAP **não é case sensitive**, mas não aceita caracteres;
-- Especificações do usuário `>` Dados usuário `>` Valores fixos : Encontro / altero minhas preferências de formatação do sistema;
+- Especificações do usuário `>` Dados usuário `>` Valores fixos : Encontro / altero **minhas preferências de formatação do sistema**;
 * O `compilador` sempre vai apontar o erro (caso haja) na linha exata ou na anterior;
+- Para considerar que o **RADIOBUTTON** está selecionado, sempre vou considerar `'X'` maiúsculo mesmo.
+
+<br>
 
 > TimeStamp:
 - Não é uma Variável do Sistema e sim um Tipo!
 - Eu posso guardá-la em uma variável utilizando o datum e o uzeit, por exemplo;
 
-**DECLARANDO:**<br>
+Declarando:
 
  1. `Data v_timestamp TYPE TIMESTAMP.`
 
@@ -309,12 +344,13 @@ Já em desuso, quase. *{Não vamos usar na Academia}*<br>
 
  3. `WRITE v_timestamp.`
  
- OU
+ ou
 
  3. `DATA: l_data TYPE D, l_hora TYPE T`.
  4. `l_data = v_timestamp(8)` : Só os primeiros 8 caraceres da data
  5. `l_hora = v_timestamp+8(6)` : Próximos 6 caracteres da hora
 
+<br>
 
 > Atalhos:
 - `F1` em cima do comando - SAP Help, ajuda técnica ou documentação daquele comando
@@ -325,9 +361,13 @@ Já em desuso, quase. *{Não vamos usar na Academia}*<br>
 - `F3` : Volta (??)
 - `F8` : Executa
 
+<br>
+
 > Operadores:
 - `<>`: Diferente
 - `=`: Igual
+
+<br>
 
 > Comentários:
 - `*` OU `"`: Comenta o código, no início ou no meio dele, respectivamente
