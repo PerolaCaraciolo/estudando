@@ -5,9 +5,8 @@
 1. SE38 > 'ZnomePrograma'
 2. add um título > Programa Executável > Cliente Produtivo
 3. add o Package 'ZACADEMIA_OUT_24'     *{Na academia}*
-4. add a ordem, que já tá indo automático aqui 'SXTK900070' {Na academia}
-- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)
-<br>
+4. add a ordem, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
+- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)<br>
 Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
 <br>
@@ -152,8 +151,7 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 
 > `DATA v_variavelGlobal(<20>) TYPE <c>.`
 
-> `DATA: v_variavelGlobal<10> TYPE <i>,`
-`......l_variavelLocal<20> TYPE <c>.`
+> `DATA: v_variavelGlobal<10> TYPE <i>, l_variavelLocal<20> TYPE <c>.`
 
 > `DATA v_variavel TYPE char<10>.`
 
