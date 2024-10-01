@@ -1,12 +1,33 @@
 > OBS.: O que está entre < ... > é campo de adição de valor, que pode ser diferente do que está de exemplo!
 
+### ====== TRANSAÇÕES ======
+
+- `SE38` - Para manipular programas (abre o editor ABAP/4)
+- `SE93` - Para criar transações customizadas
+- `SE11` - Dicionário. Para criar domínios, elementos e tabelas (visualização da arquitetura de uma tabela/estrutura do SAP)
+- `SE16N` - Exibe a tabela rápido e simples
+- `SE16` - Visualização do conteúdo de tabelas do SAP
+- `/H` - Ativa o debug
+* 1. `SE01` - Principal. Verifica o conteúdo das ordens gerais
+* 2. `SE09` - Simplificada. Verifica ordens de objetos Client Idependent (Workbench Organizer)
+* 3. `SE10` - Gerenciador de requests (Consigo consultar as tabelas que criei (?))
+- `/O<SE38>` - Abre a transação selecionada numa nova janela
+- `/N<SE38>` - Abre a transação selecionada no lugar daquela mesma janela
+
+* `SE43` - Criação de menus
+* `SE71` - Criação e manutenção de formulários SAPscripts
+* `CMOD` - Criação de projetos Exits (Field Exits, User Exits,...)
+<br>
+<br>
+
 ### ====== CRIANDO UM PROGRAMA ======
 
 1. SE38 > 'ZnomePrograma'
 2. add um título > Programa Executável > Cliente Produtivo
 3. add o Package 'ZACADEMIA_OUT_24'     *{Na academia}*
 4. add a ordem, que já tá indo automático aqui 'SXTK900070' *{Na academia}*
-- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)<br>
+- ASSIM, eu vou ter criado um programa EXECUTÁVEL (= REPORTs)
+
 Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado a **um pacote** e uma **ordem de transporte**.
 <br>
 <br>
@@ -14,7 +35,7 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 ### ====== CRIANDO TRANSAÇÕES ======
 
 1. SE93 > 'ZnomeTransação'
-2. add o texto breve descrição > Programa e tela de seleção (Transação de report, por ser um programa executável)
+2. add o texto breve descrição > Programa e tela de seleção (Transação de report), por ser um programa executável
 3. Programa: RFITEMGL (usei isso na primeira (?) )
 4. Marco a mais apenas opções em Capacidade GUI: HTML, JAVA E WINDOWS
 <br>
@@ -22,37 +43,36 @@ Obs.: Meu programa (todos os objetos do workbench) precisa sempre ser associado 
 
 ### ====== TYPES ======
 
-* CHAR10 / CHAR<30> / c LENGTH <30> - strings
-* i - números
-* d - data
-* p DECIMALS <3> - Número com casas decimais
-* datum - Data do servidor
-* uzeit - Hora do servidor
-* datlo - Data do meu servidor
-* timlo - Hora do meu servidor
-* sydatum
-* syuzeit
-<br>
+> TIPOS DE DADOS:
+- `CHAR10` / `CHAR<30>` / `c LENGTH <30>` - Strings de tamanho fixo
+- `curr` - Valores monetários ($$)
+- `i` - Números inteiros
+- `f` - Float (maior precisão decimal)
+- `n` `LENGTH <8>.` - String numérico (números não calculados)
+- `d` - Datas YYYYMMDD
+- `t` - Horas HHMMSS
+- `p` `DECIMALS <3>.` - Número com <> casas decimais
+- `string` - Strings de tamanhos variáveis
+- `x` - Valores binários ou hexadecimais (transferências de dados de baixo nível)
+- `quan` - Quantidades físicas (pode ter decimais tbm) (?)
+- `clnt` - Representa o cliente
+- `datum` - Data do servidor
+- `uzeit` - Hora do servidor
+- `datlo` - Data do meu servidor
+- `timlo` - Hora do meu servidor
 <br>
 
-### ====== TRANSAÇÕES ======
-
-* SE38 - Para programas
-* SE93 - Para criar transações
-* SE11 - Dicionário. Para criar tabelas
-* SE01 - principal / SE09 - simplificada / SE10 - Gerenciador de requests (Consigo consultar as tabelas que criei (?))
-* SE16N - Exibe a tabela rápido e simples
-* /H - Ativa o debug
-* /O<se38> - Abre a transação numa nova janela
-* /N<se38> - Abre a transação no lugar daquela mesma janela
-> Com apostila vazada:
-- SE38 - abre o editor ABAP/4
-- SE16 - permite a visualização do conteúdo de tabelas do SAP 
-- SE11 - permite a visualização da arquitetura de uma tabela/estrutura do SAP
-- SE43 - criação de menus
-- SE93 - criação de transações customizadas
-- SE71 - criação e manutenção de formulários SAPscripts
-- CMOD - criação de projetos Exits (Field Exits, User Exits,...)
+> VARIÁVEIS DE SISTEMA
+- `sy-datum` - Data atual do sistema YYYYMMDD
+- `sy-uzeit` - Hora atual do sistema HHMMSS
+- `sy-datlo` - Data da última alteração YYYYMMDD
+- `sy-timlo` - Hora da última alteração HHMMSS
+- `sy-uname` - Nome do usuário que está executando
+- `sy-langu` - Idioma do usuário logado
+- `sy-ucomm` - Um comando do usuário. Bom pra interação com botões
+- `sy-pagno` - Número da página atual
+- `sy-tcode` - Código da transação atual
+- `sy-repid` - Nome do programa (report ou função) executado
 <br>
 <br>
 
@@ -153,9 +173,11 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 
 > `DATA: v_variavelGlobal<10> TYPE <i>, l_variavelLocal<20> TYPE <c>.`
 
-> `DATA v_variavel TYPE char<10>.`
+> `DATA v_variavel LIKE char<10>.`
 
 > `DATA v_variavelGlobal TYPE <c> LENGTH <30>`
+
+> `DATA l_variavelLocal VALUE '<1>'.`
 
 - Se a variável estiver vazia e o tipo dela for INTEIRO, vai ser impresso '0' (não tem 'not null' aqui);
 - `v_variavel` OU `l_variavel`: A variável pode ser global ou local, respectivamente;
@@ -182,20 +204,24 @@ Um programa, mas que não é executável, por isso que quando eu uso no código,
 
 * SEMPRE terminar toda ação com PONTO FINAL
 * SEMPREEEE salvar, conferir (compilar), ativar pra, então, verificar
-* F1 em cima do comando  - 
+* F1 em cima do comando  -  SAP Help, ajuda técnica ou documentação daquele comando
+* F4 no campo de entrada - Search Help, lista de valores possíveis para aquele campo específico
 
 * 'TYPE' ou 'LIKE'  -  Definem a tipagem
+* 'UNLINE.' - Imprime "uma linha" no código
 
 
 
 * 'WRITE /.' OU 'SKIP <num linhas>.'  -  Pula linha
 * 'WRITE: 'texto', '/', p_variav.'  -  Imprime mais de uma coisa ao mesmo tempo
+* 'WRITE: /'texto'.'
 
 
 * 'PARAMETERS p_variav TYPE <tipo> <OBLIGATORY (se precisar)>.'  -  Como criar uma tela de seleção
 * 'PARAMETERS p_variav RADIOBUTTON GROUP <g1>.'  -  Cria um botão clicável
 * Depois de criar > 'Elementos de texto' > 'Textos de seleção',
 * eu consigo alterar a frase que vai aparecer para o usuário no momento em que for receber essa variável.
+* 'PARAMETERS p_variav(<15>) TYPE c DEFAULT '<Vem isso impresso sem poder alterar>'.' - Mostra uma caixa com preenchimento automático
 * Não esquecer de salvar e ativar lá também!
 
 
