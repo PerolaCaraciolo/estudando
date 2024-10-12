@@ -201,7 +201,7 @@ Não são necessariamente obrigatórios, mas são ideais.
 - Só vem depois das telas de seleção e das declarações de variáveis (só depois do INCLUDE);
 - Uso **para inicializar as variáveis** e definir valores tbm.
 
-2. `AT-SELECTION-SCREEN`: 
+2. `AT SELECTION-SCREEN`: 
 
 - Pós tela de seleção exibida e antes da lógica de processamento principal;
 - Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!
@@ -210,6 +210,7 @@ Não são necessariamente obrigatórios, mas são ideais.
 3. **`START-OF-SELECTION`**:
 
 - Pós os INCLUDES;
+- Acontece quando eu dou um "enter";
 - Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro;
 - Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.
 
