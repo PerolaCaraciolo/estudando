@@ -203,14 +203,16 @@ Não são necessariamente obrigatórios, mas são ideais.
 
 2. `AT SELECTION-SCREEN`: 
 
+- PAI - Process after imput;
 - Pós tela de seleção exibida e antes da lógica de processamento principal;
+- Dá pra trazer classes de mensagens;
+- Acontece quando eu dou um "enter";
 - Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!
 - Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)
 
 3. **`START-OF-SELECTION`**:
 
 - Pós os INCLUDES;
-- Acontece quando eu dou um "enter";
 - Uso sempre antes de começar o código, a lógica principal do programa. "O core do meu processamento" fica aqui dentro;
 - Quando o ABAP começa a executar a lógica, processar os dados e gerar as saídas.
 
