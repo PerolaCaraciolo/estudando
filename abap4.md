@@ -23,7 +23,7 @@ EX.: LOOP `>` IF <isso> `>` CONTINUE `>` ENDIF `>` WRITE <aquilo> `>` ENDLOOP `=
 - Eu posso colocar condições como filtro dentro do LOOP com `WHERE` + condicionais tipo > < <> = AND OR (uma ou mais);
 - Trabalha com tabelas internas e estruturas (por isso posso usar filtro e o WHILE não).
 
-> `LOOP AT <t_nomeTabela> INTO <s_nomeEstrutura> WHERE <campo1> '>' <valor> AND <campo2> '=' <valor2>.` - Caso eu queira usar condições pra afunilar as opções, por ex
+> `LOOP AT <t_nomeTabelaI> INTO <s_nomeEstrutura> WHERE <campo1> '>' <valor> AND <campo2> '=' <valor2>.` - Caso eu queira usar condições pra afunilar as opções, por ex
 
 > `....WRITE: 'sy-tabix', SY-TABIX.` - Caso eu queira imprimir o tabix
 
@@ -40,11 +40,11 @@ EX.: LOOP `>` IF <isso> `>` CONTINUE `>` ENDIF `>` WRITE <aquilo> `>` ENDLOOP `=
 - A condição precisa retornar um BOOLEAN. Se TRUE, entra, se FALSE, sai;
 - Não consigo fazer filtros porque ele trabalha com uma condição!
 
-> `WHILE 'sy-index <= lines( <t_nomeTabela> ).` - Um ex de condição
+> `WHILE 'sy-index <= lines( <t_nomeTabelaI> ).` - Um ex de condição
 
 > `....WRITE: 'sy-index', SY-INDEX.` - Caso eu queira imprimir o index
 
-> `....READ TABLE <t_nomeTabela> INTO <s_nomeEstrutura> INDEX sy-index.`
+> `....READ TABLE <t_nomeTabelaI> INTO <s_nomeEstrutura> INDEX sy-index.`
 
 > `....WRITE: <s_nomeEstrutura>-<campo1>, <s_nomeEstrutura>-<campo2>.`
 
@@ -63,7 +63,7 @@ EX.: LOOP `>` IF <isso> `>` CONTINUE `>` ENDIF `>` WRITE <aquilo> `>` ENDLOOP `=
 
 > `....WRITE: 'sy-index', SY-INDEX.`
 
-> `....READ TABLE <t_nomeTabela> INTO <s_nomeEstrutura> INDEX sy-index.` - Ler uma linha de tabela
+> `....READ TABLE <t_nomeTabelaI> INTO <s_nomeEstrutura> INDEX sy-index.` - Ler uma linha de tabela
 
 > `WRITE: <s_nomeEstrutura>-<campo1>, <s_nomeEstrutura>-<campo2>.`
 
@@ -89,11 +89,11 @@ OBS.: É como ter a ideia de guardar em uma variável pq na hora de alterar, só
 
 > `TYPES <ty_nomeTypeTabela> TYPE STANDART TABLE OF <estruturaDicionário>.` - Criando uma estrutura de tabela interna
 
-> `DATA <t_nomeTabela> TYPE <ty_nomeTypeTabela>.` - Criando a variável usando esse tipo
+> `DATA <t_nomeTabelaI> TYPE <ty_nomeTypeTabela>.` - Criando a variável usando esse tipo
 
 **OU**
 
-> `DATA <t_nomeTabela> TYPE STANDART TABLE OF <estruturaDicionário>.` - Caso eu não tivesse criado com o 'TYPES'
+> `DATA <t_nomeTabelaI> TYPE STANDART TABLE OF <estruturaDicionário>.` - Caso eu não tivesse criado com o 'TYPES'
 
 - TYPE PARA ESTRUTURAS CUSTOMIZADAS (qdo não quero todos os campos dela):
 
@@ -117,7 +117,7 @@ Criando um segundo tipo que usa o primeiro.
 
 > `DATA <s_nomeEstrutura> TYPE <y_nomeType>.` - Criando as variáveis
 
-> `DATA <t_nomeTabela> TYPE <ty_nomeTypeTabela>.`
+> `DATA <t_nomeTabelaI> TYPE <ty_nomeTypeTabela>.`
 
 - INCLUINDO CAMPOS NA ESTRUTURA:
 
@@ -141,7 +141,7 @@ Criando um segundo tipo que usa o primeiro.
 
 > `.......<campoMesmoNomedoType> TYPE <estruturaDicionário>,` - Colocando um campo que tenha a estrutura da <estruturaDicionário>
 
-> `.......<t_nomeTabela> TYPE <ty_nomeTypeTabela>,` - Colocando um campo que é uma tabela interna (aí eu tenho que criar ela ali em cima)
+> `.......<t_nomeTabelaI> TYPE <ty_nomeTypeTabela>,` - Colocando um campo que é uma tabela interna (aí eu tenho que criar ela ali em cima)
 
 > `.......END OF <y_nomeType>.`
 
