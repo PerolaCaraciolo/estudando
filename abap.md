@@ -210,7 +210,7 @@ Não são necessariamente obrigatórios, mas são ideais.
 - Dá pra trazer classes de mensagens;
 - Acontece quando eu dou um "enter";
 - Posso validar aqui logo **se o usuário adicionou um dado válido ou não**!
-- Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção. (??)
+- Me possibilita também de criar as orelhinhas de pesquisa dos campos de inserção (usando + ON VALUE-REQUEST FOR <p_nomeParameter>)
 
 3. **`START-OF-SELECTION`**:
 
