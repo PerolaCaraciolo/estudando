@@ -1,3 +1,7 @@
+OBS.: Para facilitar a tradução do meu `WRITE`, por exemplo, é melhor que eu sempre coloque ele como `text-000`, <...> e defina na minha língua lá no "SÍMBOLOS DE TEXTO". Daí, no "GoTo" lá no topo do programa, eu consigo traduzir.
+
+
+
 ### ====== EVENTOS DO REPORT ======
 
 - `AT SELECTION-SCREEN OUPUT.`: Antes de aparecer a tela de seleção, passa aqui (PBO - Process before output);

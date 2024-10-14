@@ -71,6 +71,8 @@ EX.: LOOP `>` IF <isso> `>` CONTINUE `>` ENDIF `>` WRITE <aquilo> `>` ENDLOOP `=
 
 ### ====== CRIANDO TYPES ======
 
+OBS.: Tenho o type `REANGE` tbm, mas eu deixei quieto pq, basicamente, é um SELECT-OPTIONS
+
 - TYPE SIMPLES:
 
 > `TYPES <y_nomeType> TYPE <tipo>.` - Criando o TYPE

@@ -58,6 +58,8 @@ Comando para impressões na tela e em variáveis, já adequando a escrita pra li
 
 > `WRITE: p_vari01, p_vari02.`
 
+> `WRITE |<texto texto texto> { variável } <texto texto>|.`
+
 > `WRITE: '<texto>, /, p_variav.`
 
 > `WRITE: /'<texto>.` OU `WRITE: / '<texto>', v_variavelGlobal.` (Será ?)
