@@ -27,7 +27,7 @@
 
 > *PARA SUBIR UM PROJETO DO PC PRO HUB*
 1. PRIMEIRO crio o repositório no GitHub
-2. `git init`
+2. `git init -b main`
 3. `git add .`
 4. `git commit -m "<msg do commit>"` NO TERMINAL DO PROJETO NO VS CODE
 5. `git remote add origin <link do repositório do GitHub>`
